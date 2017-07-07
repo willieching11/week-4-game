@@ -1,0 +1,37 @@
+.title {
+	font-family: starjedi;
+	font-size: 136px;
+	text-align: center;
+	margin-bottom: 0;
+	color: white;
+	background-color: black;
+	background-image: url("../images/stars.jpg");
+}
+
+.subtitle {
+	margin-top: 0;
+	font-size: 38px;
+	padding-right: 100px;
+	text-align: right;
+	font-family: starjedi;
+	color: white;
+	background-image: url("../images/stars.jpg");
+}
+
+p {
+	font-size: 36px;
+	font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+@font-face { 
+	font-family: starjedi; 
+	src: url('../fonts/star_jedi/starjout/Starjout.ttf'); 
+} 
+
+
+body {
+	background-image: url("../images/stars.jpg");
+}
