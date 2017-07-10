@@ -4,8 +4,10 @@
 	text-align: center;
 	margin-bottom: 0;
 	color: white;
-	background-color: black;
-	background-image: url("../images/stars.jpg");
+}
+
+header {
+	background-image: url("../images/starback.jpg");
 }
 
 .subtitle {
@@ -15,7 +17,6 @@
 	text-align: right;
 	font-family: starjedi;
 	color: white;
-	background-image: url("../images/stars.jpg");
 }
 
 p {
@@ -31,7 +32,44 @@ p {
 	src: url('../fonts/star_jedi/starjout/Starjout.ttf'); 
 } 
 
-
 body {
-	background-image: url("../images/stars.jpg");
+	background-image: url("../images/wallpaper.jpg");
+	background-size: cover;
 }
+
+#maincontent {
+	color: white;
+}
+
+.letter {
+    width: 150px;
+    height: 165px;
+    border-style: solid;
+    padding: 2px;
+    float: left;
+    margin: 2px;
+  }
+
+.letter-button-color {
+    color: blue;
+    font-size: 16px;
+}
+
+.hero {
+    color: green;
+    font-size: 16px;
+    background-color: gainsboro;
+    text-align: center;
+    border: 2px solid green;
+}
+
+.villain {
+    color: red;
+    font-size: 16px;
+    background-color: gainsboro;
+    text-align: center;
+    border: 2px solid red;
+}
+
+
+
