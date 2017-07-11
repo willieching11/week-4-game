@@ -3,7 +3,7 @@
 	font-size: 136px;
 	text-align: center;
 	margin-bottom: 0;
-	color: white;
+	color: yellow;
 }
 
 header {
@@ -16,7 +16,7 @@ header {
 	padding-right: 100px;
 	text-align: right;
 	font-family: starjedi;
-	color: white;
+	color: yellow;
 }
 
 p {
@@ -33,12 +33,16 @@ p {
 } 
 
 body {
-	background-image: url("../images/wallpaper.jpg");
+	background-image: url("../images/startpage2.jpg");
 	background-size: cover;
 }
 
 #maincontent {
 	color: white;
+}
+
+#start {
+	text-align: center;
 }
 
 .letter {
@@ -71,5 +75,15 @@ body {
     border: 2px solid red;
 }
 
+.btn-xl {
+	margin-top: 10px;
+	padding: 10px 20px;
+    font-size: 20px;
+    border-radius: 10px;
+}
+
+#action {
+	font-size: 30px;
+}
 
 
