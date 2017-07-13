@@ -1,4 +1,7 @@
 $(document).ready(function() {
+  var theme = new Audio("assets/sounds/theme.mp3");
+  theme.volume = 0.8;
+  theme.play(); 
   var characterChosen = false;
   var enemyChosen = false;
   var hero_chosen;
@@ -11,6 +14,7 @@ $(document).ready(function() {
       attackPow: 8,
       counterPow: 12,
       health: 90,
+      voice: new Audio('assets/sounds/luke.mp3')
     },
 
     obiWan = {
@@ -19,6 +23,7 @@ $(document).ready(function() {
       attackPow: 6,
       counterPow: 10,
       health: 110,
+      voice: new Audio('assets/sounds/kenobi.wav')
     },
 
     maul = {
@@ -27,6 +32,7 @@ $(document).ready(function() {
       attackPow: 9,
       counterPow: 19,
       health: 85,
+      voice: new Audio('assets/sounds/maul.mp3')
     },
 
     palpatine = {
@@ -35,6 +41,7 @@ $(document).ready(function() {
       attackPow: 4, 
       counterPow: 13,
       health: 130,
+      voice: new Audio('assets/sounds/palpatine.mp3')
     }
   ];
   $('#start').append("<button class = 'btn-xl btn-primary startButton'>Start Game!</button>");
@@ -46,6 +53,11 @@ $(document).ready(function() {
     $('#hero').append("<h1>Hero</h1>");
     $('#attackButton').append("<h1>Fight!</h1>");
     $('#villain').append("<h1>Defender</h1>");
+    theme.volume = 0.3; 
+    theme.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+  }, false);
     startGame();
   });
   
@@ -77,6 +89,7 @@ $(document).ready(function() {
         $('#hero').append(hero);
         var i = ($(this).attr('value'));
         hero_chosen = characters[i];
+        hero_chosen.voice.play();
         $('#action').prepend("<p>You have chosen " + hero_chosen.name + "</p>");
         initialPower = hero_chosen.attackPow;
         characters.splice(i, 1); //remove choen hero from fighters array
@@ -97,6 +110,7 @@ $(document).ready(function() {
         $('#villain').append(enemy);
         var i = ($(this).attr('value'));
         villain_chosen = characters[i];
+        villain_chosen.voice.play();
         $('#action').prepend("<p>You will fight " + villain_chosen.name + "</p>");
         characters.splice(i, 1); //remove choen villain from enemies array
         $('#enemies').empty();
@@ -107,6 +121,9 @@ $(document).ready(function() {
     });
 
     $('#attackButton').on("click", ".attackButton", function(){
+      var saberSounds = ["assets/sounds/saber2.mp3", "assets/sounds/saber3.mp3", "assets/sounds/saber4.mp3"]
+      var sound = new Audio (saberSounds[Math.floor(Math.random()*saberSounds.length)]);
+      sound.play();
       $('#action').empty();
       $('#action').append("<p>" + hero_chosen.name + " attacks and deals " + hero_chosen.attackPow + " damage!</p>");
       villain_chosen.health = villain_chosen.health - hero_chosen.attackPow;
@@ -120,6 +137,7 @@ $(document).ready(function() {
         wins++;
         if (wins === 3) {
           $('#attackButton').append("<button class = 'btn btn-success restartButton'>Play Again</button>");
+          alert("You Win!!");
         }
         return;
       }
@@ -136,6 +154,7 @@ $(document).ready(function() {
         $('#attackButton').append("<h1>Fight!</h1>");
         $('#action').append("<p>" + hero_chosen.name + " has been killed!</p>");
         $('#attackButton').append("<button class = 'btn btn-success restartButton'>Play Again</button>");
+        alert("You Were Killed!!");
       }
     }); 
 
@@ -181,6 +200,7 @@ $(document).ready(function() {
           attackPow: 8,
           counterPow: 12,
           health: 95,
+          voice: new Audio('assets/sounds/luke.mp3')
         },
 
         obiWan = {
@@ -189,6 +209,7 @@ $(document).ready(function() {
           attackPow: 6,
           counterPow: 10,
           health: 110,
+          voice: new Audio('assets/sounds/kenobi.mp3')
         },
 
         maul = {
@@ -197,6 +218,7 @@ $(document).ready(function() {
           attackPow: 9,
           counterPow: 19,
           health: 85,
+          voice: new Audio('assets/sounds/maul.mp3')
         },
 
         palpatine = {
@@ -205,6 +227,7 @@ $(document).ready(function() {
           attackPow: 4, 
           counterPow: 13,
           health: 130,
+          voice: new Audio('assets/sounds/palpatine.mp3')
         }
       ];
       fighters('#fighters');
